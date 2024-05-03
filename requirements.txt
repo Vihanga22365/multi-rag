@@ -1,8 +1,8 @@
 streamlit
 langchain 
 pydantic 
-unstructured
 lxml
+unstructured[all-docs] 
 langchain-google-genai
 google.generativeai
 chromadb
