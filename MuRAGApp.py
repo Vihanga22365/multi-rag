@@ -16,7 +16,6 @@ __import__('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
-
 # Get the current working directory
 cwd = os.getcwd()
 
@@ -144,15 +143,7 @@ if pr ==True:
       else:
         model = ChatGoogleGenerativeAI(
             #temperature=0, model="gemini-pro", max_output_tokens=1024
-                        """
-            Configures the parameters for the summarization model.
-            
-            Args:
-                temperature (float): The temperature parameter for the model, which controls the randomness of the output. A higher temperature will result in more diverse but less focused output.
-                model (str): The name of the model to use for summarization. In this case, the "gemini-1.5-pro-latest" model is specified.
-                max_output_tokens (int): The maximum number of output tokens the model can generate.
-            """
-temperature=0, model="gemini-1.5-pro-latest", max_output_tokens=1024
+            temperature=0, model="gemini-1.5-pro-latest", max_output_tokens=1024
         )
 
 
@@ -257,7 +248,6 @@ temperature=0, model="gemini-1.5-pro-latest", max_output_tokens=1024
       return img_base64_list, image_summaries
 
   fpath = "figures"
-  
   # Image summaries
   img_base64_list, image_summaries = generate_img_summaries(fpath)
 
