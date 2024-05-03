@@ -1,6 +1,5 @@
 streamlit
 langchain 
-unstructured[all-docs] 
 pydantic 
 lxml
 langchain-google-genai
