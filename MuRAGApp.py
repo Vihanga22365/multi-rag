@@ -442,7 +442,7 @@ if pr ==True:
         model = ChatGoogleGenerativeAI(model="gemini-1.5-pro-latest",max_output_tokens=1024)
       else:
         try:
-          model = ChatOpenAI(model="gpt-4-vision-preview", openai_api_key = openai.api_key, max_output_tokens=1024)
+          model = ChatOpenAI(model="gpt-4-vision-preview", openai_api_key = openai.api_key, max_tokens=1024)
         except Exception as e:
           model = ChatOpenAI(model="gpt-4-turbo", openai_api_key = openai.api_key, max_tokens=1024)
 
