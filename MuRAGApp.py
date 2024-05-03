@@ -16,6 +16,7 @@ __import__('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
+
 # Get the current working directory
 cwd = os.getcwd()
 
@@ -143,7 +144,15 @@ if pr ==True:
       else:
         model = ChatGoogleGenerativeAI(
             #temperature=0, model="gemini-pro", max_output_tokens=1024
-            temperature=0, model="gemini-1.5-pro-latest", max_output_tokens=1024
+                        """
+            Configures the parameters for the summarization model.
+            
+            Args:
+                temperature (float): The temperature parameter for the model, which controls the randomness of the output. A higher temperature will result in more diverse but less focused output.
+                model (str): The name of the model to use for summarization. In this case, the "gemini-1.5-pro-latest" model is specified.
+                max_output_tokens (int): The maximum number of output tokens the model can generate.
+            """
+temperature=0, model="gemini-1.5-pro-latest", max_output_tokens=4000
         )
 
 
@@ -196,7 +205,7 @@ if pr ==True:
           temperature=0, model=immage_sum_model, max_tokens=1024)
       else:
         #model = ChatGoogleGenerativeAI(model="gemini-pro-vision", max_output_tokens=1024)
-        model = ChatGoogleGenerativeAI(model="gemini-1.5-pro-latest", max_output_tokens=1024)
+        model = ChatGoogleGenerativeAI(model="gemini-1.5-pro-latest", max_output_tokens=4000)
 
       msg = model(
           [
@@ -437,10 +446,10 @@ if pr ==True:
 
       # Multi-modal LLM
       if generation_model == 'gemini-1.5-pro-latest':
-        model = ChatGoogleGenerativeAI(model="gemini-1.5-pro-latest",max_output_tokens=1024)
+        model = ChatGoogleGenerativeAI(model="gemini-1.5-pro-latest",max_output_tokens=4000)
       else:
         try:
-          model = ChatOpenAI(model="gpt-4-vision-preview", max_output_tokens=1024)
+          model = ChatOpenAI(model="gpt-4-vision-preview", max_output_tokens=4000)
         except Exception as e:
           model = ChatOpenAI(model="gpt-4-turbo", max_tokens=1024)
 
