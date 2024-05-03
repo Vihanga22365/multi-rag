@@ -114,6 +114,9 @@ if pr ==True:
   os.environ["LANGCHAIN_PROJECT"] = "multi_model_rag_mvr"
   os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
   
+  os.environ['GOOGLE_API_KEY'] = st.secrets["GOOGLE_API_KEY"]
+  openai.api_key = st.secrets["OPENAI_API_KEY"]
+  
 
   # Generate summaries of text elements
   def generate_text_summaries(texts, tables, summarize_texts=False):
@@ -138,7 +141,7 @@ if pr ==True:
 
       if time_hist_color == 'gpt-4-turbo':
         model = ChatOpenAI(
-          temperature=0, model= "gpt-4-turbo", max_tokens=1024)
+          temperature=0, model= "gpt-4-turbo", openai_api_key = openai.api_key, max_tokens=1024)
 
       else:
         model = ChatGoogleGenerativeAI(
@@ -193,7 +196,7 @@ if pr ==True:
       """Make image summary"""
       if immage_sum_model == 'gpt-4-vision-preview':
         model = ChatOpenAI(
-          temperature=0, model=immage_sum_model, max_tokens=1024)
+          temperature=0, model=immage_sum_model, openai_api_key = openai.api_key, max_tokens=1024)
       else:
         #model = ChatGoogleGenerativeAI(model="gemini-pro-vision", max_output_tokens=1024)
         model = ChatGoogleGenerativeAI(model="gemini-1.5-pro-latest", max_output_tokens=1024)
@@ -439,9 +442,9 @@ if pr ==True:
         model = ChatGoogleGenerativeAI(model="gemini-1.5-pro-latest",max_output_tokens=1024)
       else:
         try:
-          model = ChatOpenAI(model="gpt-4-vision-preview", max_output_tokens=1024)
+          model = ChatOpenAI(model="gpt-4-vision-preview", openai_api_key = openai.api_key, max_output_tokens=1024)
         except Exception as e:
-          model = ChatOpenAI(model="gpt-4-turbo", max_tokens=1024)
+          model = ChatOpenAI(model="gpt-4-turbo", openai_api_key = openai.api_key, max_tokens=1024)
 
       #model = ChatOpenAI(model="gpt-4-vision-preview", openai_api_key = OPENAI_API_KEY, max_tokens=1024)
 
