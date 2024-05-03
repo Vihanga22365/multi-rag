@@ -1,6 +1,7 @@
 streamlit
 langchain 
 pydantic 
+unstructured
 lxml
 langchain-google-genai
 google.generativeai
