@@ -209,6 +209,13 @@ if pr ==True:
           ]
       )
       return msg.content
+  
+  def create_directory_if_not_exists(directory):
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+        print(f"Directory '{directory}' created.")
+    else:
+        print(f"Directory '{directory}' already exists.")
 
   def generate_img_summaries(path):
       """
@@ -238,6 +245,8 @@ if pr ==True:
       return img_base64_list, image_summaries
 
   fpath = "/content/figures"
+  
+  create_directory_if_not_exists(fpath)
   # Image summaries
   img_base64_list, image_summaries = generate_img_summaries(fpath)
 
