@@ -12,6 +12,9 @@ from tempfile import NamedTemporaryFile
 import tempfile
 
 import os
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 # Get the current working directory
 cwd = os.getcwd()
