@@ -152,7 +152,7 @@ if pr ==True:
                 model (str): The name of the model to use for summarization. In this case, the "gemini-1.5-pro-latest" model is specified.
                 max_output_tokens (int): The maximum number of output tokens the model can generate.
             """
-temperature=0, model="gemini-1.5-pro-latest", max_output_tokens=4000
+temperature=0, model="gemini-1.5-pro-latest", max_output_tokens=1024
         )
 
 
@@ -205,7 +205,7 @@ temperature=0, model="gemini-1.5-pro-latest", max_output_tokens=4000
           temperature=0, model=immage_sum_model, max_tokens=1024)
       else:
         #model = ChatGoogleGenerativeAI(model="gemini-pro-vision", max_output_tokens=1024)
-        model = ChatGoogleGenerativeAI(model="gemini-1.5-pro-latest", max_output_tokens=4000)
+        model = ChatGoogleGenerativeAI(model="gemini-1.5-pro-latest", max_output_tokens=1024)
 
       msg = model(
           [
@@ -446,10 +446,10 @@ temperature=0, model="gemini-1.5-pro-latest", max_output_tokens=4000
 
       # Multi-modal LLM
       if generation_model == 'gemini-1.5-pro-latest':
-        model = ChatGoogleGenerativeAI(model="gemini-1.5-pro-latest",max_output_tokens=4000)
+        model = ChatGoogleGenerativeAI(model="gemini-1.5-pro-latest",max_output_tokens=1024)
       else:
         try:
-          model = ChatOpenAI(model="gpt-4-vision-preview", max_output_tokens=4000)
+          model = ChatOpenAI(model="gpt-4-vision-preview", max_output_tokens=1024)
         except Exception as e:
           model = ChatOpenAI(model="gpt-4-turbo", max_tokens=1024)
 
