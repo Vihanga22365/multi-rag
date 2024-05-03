@@ -5,7 +5,8 @@ pydantic
 lxml
 langchain-google-genai
 google.generativeai
-chromadb
+chromadb==0.4.15
+pysqlite3-binary
 google-generativeai
 langsmith 
 langchainhub
@@ -15,7 +16,7 @@ opencv-python
 tensorflow-probability
 imageio 
 pillow
-pysqlite3-binary
+
 
 
 
