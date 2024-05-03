@@ -2,7 +2,7 @@ streamlit
 langchain 
 pydantic 
 lxml
-unstructured[all-docs] 
+unstructured[all-docs]==0.13.6 
 langchain-google-genai
 google.generativeai
 chromadb
