@@ -1,5 +1,5 @@
 streamlit
-unstructured==0.7.12
+unstructured[all-docs]
 langchain 
 pydantic 
 lxml
